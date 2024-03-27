@@ -5,7 +5,6 @@ import Logo from "../../../public/IMG-20230417-WA0010 1.png";
 import Arrow from "../../../public/Arrow.png";
 import errorIcon from "../../../public/Vector.png";
 import { X } from "lucide-react";
-
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
