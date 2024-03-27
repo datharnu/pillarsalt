@@ -4,7 +4,7 @@ import Image from "next/image";
 import Logo from "../../../public/IMG-20230417-WA0010 1.png";
 import Arrow from "../../../public/Arrow.png";
 import errorIcon from "../../../public/Vector.png";
-import { X } from "lucide-react";
+import close from "../../../public/Close.png";
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -65,7 +65,7 @@ export default function LoginPage() {
             </div>
             {/* Close Icon */}
             <div onClick={handleCloseError}>
-              <X />
+              <Image src={close} alt="close-icon" width={30} />
             </div>
           </div>
         )}
@@ -81,7 +81,7 @@ export default function LoginPage() {
             </label>
             <div>
               <input
-                className="border rounded-lg border-black p-2 w-[21rem]"
+                className="border rounded-lg border-black p-2 w-full"
                 type="email"
                 id="email"
                 placeholder="Enter your mail"
@@ -98,7 +98,7 @@ export default function LoginPage() {
             </label>
             <div>
               <input
-                className="border rounded-lg border-black p-2 w-[21rem]"
+                className="border rounded-lg border-black p-2 w-full"
                 type="password"
                 id="password"
                 placeholder="Enter your password"

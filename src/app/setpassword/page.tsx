@@ -42,6 +42,17 @@ export default function SetPassword() {
 
     // Proceed with form submission logic
     console.log(confirmPassword, password);
+
+    // Simulated login check
+    if (password === "Airtel8097!" && confirmPassword === "Airtel8097!") {
+      // Redirect to the next step if login is successful
+      // For now, let's just log a success message
+      console.log("Login successful!");
+    } else {
+      // Display error message if login fails
+      setPasswordsMatch(true);
+      return;
+    }
   };
 
   const handleChangePassword = (e: { target: { value: any } }) => {
@@ -66,107 +77,109 @@ export default function SetPassword() {
   };
 
   return (
-    <div className="mx-5">
-      {/* Logo */}
-      <div className="my-10 -ml-3">
-        <Image src={Logo} alt="Logo" height={60} priority />
-      </div>
-
-      {/* Welcome message */}
-      <div>
-        <h1 className="text-[30px] font-semibold">Welcome,</h1>
-        <p className="text-[#00000099] font-light ">
-          Complete your account set up by providing a password
-        </p>
-      </div>
-
-      {/* Login Form */}
-      <form onSubmit={handleSubmit} className="my-10 text-sm">
-        {/* Password Input */}
-        <div className="space-y-5 mb-[18rem]">
-          <div className="space-y-2">
-            <label htmlFor="password" className="font-bold">
-              Password
-            </label>
-            <div>
-              <input
-                className="border rounded-lg border-black p-2 w-[21rem]"
-                type="password"
-                id="password"
-                placeholder="Enter your password"
-                value={password}
-                onChange={handleChangePassword}
-                onFocus={() => setShowPasswordRequirements(true)}
-                required
-              />
-              {/* Display password requirement error message */}
-              {showPasswordRequirements && (
-                <div className="flex my-2">
-                  {/* Error Icon */}
-                  <div className="mr-2">
-                    <Image src={errorIcon} alt="error-icon" width={25} />
-                  </div>
-                  {/* Password Requirements */}
-                  <div>
-                    {passwordRequirements.map((requirement, index) => (
-                      <div key={index} className="">
-                        <ul
-                          className={`text-[13px] ${
-                            requirement.isValid
-                              ? "text-green-400"
-                              : "text-red-400"
-                          }`}
-                        >
-                          <li>{requirement.text}</li>
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-          {/* Confirm Password Input */}
-          <div className="space-y-2">
-            <label htmlFor="confirm-password" className="font-bold">
-              Confirm Password
-            </label>
-            <div>
-              <input
-                className="border rounded-lg border-black p-2 w-[21rem]"
-                type="password"
-                id="confirm-password"
-                placeholder="Confirm your password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                required
-              />
-              {/* Display password match error message */}
-              {!passwordsMatch && (
-                <p className="text-red-400 text-sm mt-2">
-                  Password doesn't match
-                </p>
-              )}
-            </div>
-          </div>
+    <main className="mx-5">
+      <div className="">
+        {/* Logo */}
+        <div className="my-10 -ml-3">
+          <Image src={Logo} alt="Logo" height={60} priority />
         </div>
 
-        {/* Next Button */}
-        <div>
-          <div className="flex justify-center bg-gray-100 text-gray-400 rounded-lg p-3">
-            <button type="submit">
-              <a
-                href="/login"
-                id="forgot-password"
-                className="flex items-center gap-2"
-              >
-                <p>Next</p>
-                <Image src={Arrow} alt="arrow" />
-              </a>
-            </button>
-          </div>
+        {/* Welcome message */}
+        <div className="">
+          <h1 className="text-[30px] font-semibold">Welcome,</h1>
+          <p className="text-[#00000099] font-light ">
+            Complete your account set up by providing a password
+          </p>
         </div>
-      </form>
-    </div>
+
+        {/* Login Form */}
+        <form onSubmit={handleSubmit} className="my-10  text-sm">
+          {/* Password Input */}
+          <div className="space-y-5 mb-[18rem]">
+            <div className="space-y-2">
+              <label htmlFor="password" className="font-bold">
+                Password
+              </label>
+              <div className="">
+                <input
+                  className="w-full border rounded-lg border-black p-2"
+                  type="password"
+                  id="password"
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={handleChangePassword}
+                  onFocus={() => setShowPasswordRequirements(true)}
+                  required
+                />
+                {/* Display password requirement error message */}
+                {showPasswordRequirements && (
+                  <div className="flex my-2">
+                    {/* Error Icon */}
+                    <div className="mr-2">
+                      <Image src={errorIcon} alt="error-icon" width={25} />
+                    </div>
+                    {/* Password Requirements */}
+                    <div>
+                      {passwordRequirements.map((requirement, index) => (
+                        <div key={index} className="">
+                          <ul
+                            className={`text-[13px] ${
+                              requirement.isValid
+                                ? "text-green-400"
+                                : "text-red-400"
+                            }`}
+                          >
+                            <li>{requirement.text}</li>
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+            {/* Confirm Password Input */}
+            <div className="space-y-2">
+              <label htmlFor="confirm-password" className="font-bold">
+                Confirm Password
+              </label>
+              <div className=" ">
+                <input
+                  className="border rounded-lg border-black p-2 w-full "
+                  type="password"
+                  id="confirm-password"
+                  placeholder="Confirm your password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
+                />
+                {/* Display password match error message */}
+                {!passwordsMatch && (
+                  <p className="text-red-400 text-sm mt-2">
+                    Password doesn't match
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Next Button */}
+          <div>
+            <div className="flex justify-center bg-gray-100 text-gray-400 rounded-lg p-3">
+              <button type="submit">
+                <a
+                  href="/login"
+                  id="forgot-password"
+                  className="flex items-center gap-2"
+                >
+                  <p>Next</p>
+                  <Image src={Arrow} alt="arrow" />
+                </a>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
   );
 }
