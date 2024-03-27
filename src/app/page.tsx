@@ -1,3 +1,9 @@
+import SetPassword from "./setpassword/page";
+
 export default function Home() {
-  return <main className="">Welcome to my page</main>;
+  return (
+    <main className="">
+      <SetPassword />
+    </main>
+  );
 }
