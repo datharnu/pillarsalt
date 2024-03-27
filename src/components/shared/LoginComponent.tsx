@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Arrow from "../../../public/Arrow.png";
 import errorIcon from "../../../public/Vector.png";
-import { X } from "lucide-react";
+import close from "../../../public/Close.png";
 import Logo from "../../../public/IMG-20230417-WA0010 1.png";
 
 interface LoginFormProps {
@@ -82,7 +82,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
             </div>
             {/* Close Icon */}
             <div onClick={handleCloseError}>
-              <X />
+              <Image src={close} alt="close-icon" width={30} />
             </div>
           </div>
         )}
