@@ -133,7 +133,7 @@ export default function SetPassword() {
           {/* Login Form */}
           <form onSubmit={handleSubmit} className="my-10  text-sm">
             {/* Password Input */}
-            <div className="space-y-5 mb-[18rem] lg:mb-20">
+            <div className="space-y-5 mb-[18rem] lg:mb-20 ">
               <div className="space-y-2">
                 <label htmlFor="password" className="font-bold">
                   Password
