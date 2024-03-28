@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Logo from "../../../public/IMG-20230417-WA0010 1.png";
-
+import BarChart from "../../../public/Bar Chart.png";
 import errorIcon from "../../../public/Vector.png";
 
 import ButtonComponent from "@/components/shared/ButtonComponent";
@@ -83,107 +83,140 @@ export default function SetPassword() {
   };
 
   return (
-    <main className="mx-5">
-      <div className="">
-        {/* Logo */}
-        <div className="my-10 -ml-3">
-          <Image src={Logo} alt="Logo" height={60} priority />
-        </div>
+    <section className="lg:flex">
+      <div className=" lg:bg-bgImg bg-no-repeat bg-cover text-white  w-[44%] sm:hidden md:hidden h-[100vh]">
+        <div className="my-40 space-y-20 lg:ml-10  flex flex-col place-items-end ">
+          <div className="space-y-16">
+            <h1 className="text-[40px] leading-none font-semibold  ">
+              Continue Your Journey <br /> with us.
+            </h1>
 
-        {/* Welcome message */}
-        <div className="">
-          <h1 className="text-[30px] font-semibold">Welcome,</h1>
-          <p className="text-[#00000099] font-light ">
-            Complete your account set up by providing a password
-          </p>
-        </div>
-
-        {/* Login Form */}
-        <form onSubmit={handleSubmit} className="my-10  text-sm">
-          {/* Password Input */}
-          <div className="space-y-5 mb-[18rem]">
-            <div className="space-y-2">
-              <label htmlFor="password" className="font-bold">
-                Password
-              </label>
-              <div className="">
-                <input
-                  className="w-full border rounded-lg border-black p-2"
-                  type="password"
-                  id="password"
-                  placeholder="Enter your password"
-                  value={password}
-                  onChange={handleChangePassword}
-                  onFocus={() => setShowPasswordRequirements(true)}
-                  required
-                />
-                {/* Display password requirement error message */}
-                {showPasswordRequirements &&
-                  !passwordRequirements.every((req) => req.isValid) && (
-                    <div className="flex my-2">
-                      {/* Error Icon */}
-                      <div className="mr-2">
-                        <Image src={errorIcon} alt="error-icon" width={25} />
-                      </div>
-                      {/* Password Requirements */}
-                      <div>
-                        {passwordRequirements.map((requirement, index) => (
-                          <div key={index} className="">
-                            <ul
-                              className={`text-[13px] ${
-                                requirement.isValid
-                                  ? "text-green-400"
-                                  : "text-red-400"
-                              }`}
-                            >
-                              <li>{requirement.text}</li>
-                            </ul>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+            <div className="bg-white rounded-l-xl flex py-12 justify-between ">
+              <div className="text-black text-xs   space-y-3 ml-12 mt-9 w-1/4  ">
+                <p className="font-semibold text-lg">Revenue</p>
+                <p className="text-lg">$2,750,000</p>
+                <p className="text-gray-400 text-sm">Total Revenue</p>
+                <p className="text-lg">$3,489</p>
+                <p className="text-gray-400 text-sm">Total Transaction</p>
               </div>
-            </div>
-            {/* Confirm Password Input */}
-            <div className="space-y-2">
-              <label htmlFor="confirm-password" className="font-bold">
-                Confirm Password
-              </label>
-              <div className=" ">
-                <input
-                  className="border rounded-lg border-black p-2 w-full "
-                  type="password"
-                  id="confirm-password"
-                  placeholder="Confirm your password"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  required
+
+              <div className="max-w-[100%]">
+                <Image
+                  src={BarChart}
+                  width={400}
+                  alt="Bar Chart"
+                  priority
+                  className=" "
                 />
-                {/* Display password match error message */}
-                {!passwordsMatch && (
-                  <p className="text-red-400 text-sm mt-2">
-                    Password doesn't match
-                  </p>
-                )}
               </div>
             </div>
           </div>
-
-          {/* Next Button */}
-          <div>
-            <ButtonComponent
-              onClick={() => {}}
-              title="Next"
-              className=""
-              withIcon
-              icon={
-                <ArrowRightIcon className="group-hover:scale-115 group-hover:translate-x-2 transition-all  opacity-0 group-hover:opacity-100 " />
-              }
-            />
-          </div>
-        </form>
+        </div>
       </div>
-    </main>
+
+      {/* Right Side on Desktop */}
+      <div className="flex justify-center lg:w-[56%]  ">
+        <div className="mx-5  lg:my-28  md:w-[75%] ">
+          {/* Logo */}
+          <div className="my-10 -ml-3">
+            <Image src={Logo} alt="Logo" height={60} priority />
+          </div>
+
+          {/* Welcome message */}
+          <div className="">
+            <h1 className="text-[30px] font-semibold">Welcome,</h1>
+            <p className="text-[#00000099] font-light ">
+              Complete your account set up by providing a password
+            </p>
+          </div>
+
+          {/* Login Form */}
+          <form onSubmit={handleSubmit} className="my-10  text-sm">
+            {/* Password Input */}
+            <div className="space-y-5 mb-[18rem] lg:mb-20">
+              <div className="space-y-2">
+                <label htmlFor="password" className="font-bold">
+                  Password
+                </label>
+                <div className="">
+                  <input
+                    className="w-full border rounded-lg border-black p-2"
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    value={password}
+                    onChange={handleChangePassword}
+                    onFocus={() => setShowPasswordRequirements(true)}
+                    required
+                  />
+                  {/* Display password requirement error message */}
+                  {showPasswordRequirements &&
+                    !passwordRequirements.every((req) => req.isValid) && (
+                      <div className="flex my-2">
+                        {/* Error Icon */}
+                        <div className="mr-2">
+                          <Image src={errorIcon} alt="error-icon" width={25} />
+                        </div>
+                        {/* Password Requirements */}
+                        <div>
+                          {passwordRequirements.map((requirement, index) => (
+                            <div key={index} className="">
+                              <ul
+                                className={`text-[13px] ${
+                                  requirement.isValid
+                                    ? "text-green-400"
+                                    : "text-red-400"
+                                }`}
+                              >
+                                <li>{requirement.text}</li>
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                </div>
+              </div>
+              {/* Confirm Password Input */}
+              <div className="space-y-2">
+                <label htmlFor="confirm-password" className="font-bold">
+                  Confirm Password
+                </label>
+                <div className=" ">
+                  <input
+                    className="border rounded-lg border-black p-2 w-full "
+                    type="password"
+                    id="confirm-password"
+                    placeholder="Confirm your password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    required
+                  />
+                  {/* Display password match error message */}
+                  {!passwordsMatch && (
+                    <p className="text-red-400 text-sm mt-2">
+                      Password doesn't match
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* Next Button */}
+            <div>
+              <ButtonComponent
+                onClick={() => {}}
+                title="Next"
+                className=""
+                withIcon
+                icon={
+                  <ArrowRightIcon className="group-hover:scale-115 group-hover:translate-x-2 transition-all  opacity-0 group-hover:opacity-100 " />
+                }
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
   );
 }

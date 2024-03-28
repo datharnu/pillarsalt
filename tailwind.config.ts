@@ -8,7 +8,18 @@ export default {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    screens: {
+      sm: { min: "320px", max: "767px" },
+      // => @media (min-width: 640px and max-width: 767px) { ... }
+      md: { min: "768px", max: "1023px" },
+      lg: { min: "1024px", max: "2560px" },
+      // => @media (min-width: 1024px and max-width: 1279px) { ... }
+    },
+    extend: {
+      backgroundImage: {
+        bgImg: "url(/background.svg)",
+      },
+    },
   },
   darkMode: "class",
   plugins: [nextui()],
