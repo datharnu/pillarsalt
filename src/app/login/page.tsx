@@ -20,7 +20,7 @@ export default function LoginPage() {
     console.log(email, password);
 
     // Simulated login check
-    if (email === "odunayo@gmail.com" && password === "password") {
+    if (email === "joshua@gmail.com" && password === "Joshua123") {
       // Redirect to the next step if login is successful
       // For now, let's just log a success message
       console.log("Login successful!");
