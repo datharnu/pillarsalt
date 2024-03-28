@@ -1,12 +1,17 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Logo from "../../../public/IMG-20230417-WA0010 1.png";
-import Arrow from "../../../public/Arrow.png";
+
 import errorIcon from "../../../public/Vector.png";
 
+import ButtonComponent from "@/components/shared/ButtonComponent";
+import ArrowRightIcon from "@/components/icons/ArrowRightIcon";
+
 export default function SetPassword() {
+  const router = useRouter();
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordRequirements, setPasswordRequirements] = useState([
@@ -47,6 +52,7 @@ export default function SetPassword() {
     if (password === "Airtel8097!" && confirmPassword === "Airtel8097!") {
       // Redirect to the next step if login is successful
       // For now, let's just log a success message
+      router.push("/login");
       console.log("Login successful!");
     } else {
       // Display error message if login fails
@@ -112,30 +118,31 @@ export default function SetPassword() {
                   required
                 />
                 {/* Display password requirement error message */}
-                {showPasswordRequirements && (
-                  <div className="flex my-2">
-                    {/* Error Icon */}
-                    <div className="mr-2">
-                      <Image src={errorIcon} alt="error-icon" width={25} />
+                {showPasswordRequirements &&
+                  !passwordRequirements.every((req) => req.isValid) && (
+                    <div className="flex my-2">
+                      {/* Error Icon */}
+                      <div className="mr-2">
+                        <Image src={errorIcon} alt="error-icon" width={25} />
+                      </div>
+                      {/* Password Requirements */}
+                      <div>
+                        {passwordRequirements.map((requirement, index) => (
+                          <div key={index} className="">
+                            <ul
+                              className={`text-[13px] ${
+                                requirement.isValid
+                                  ? "text-green-400"
+                                  : "text-red-400"
+                              }`}
+                            >
+                              <li>{requirement.text}</li>
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                    {/* Password Requirements */}
-                    <div>
-                      {passwordRequirements.map((requirement, index) => (
-                        <div key={index} className="">
-                          <ul
-                            className={`text-[13px] ${
-                              requirement.isValid
-                                ? "text-green-400"
-                                : "text-red-400"
-                            }`}
-                          >
-                            <li>{requirement.text}</li>
-                          </ul>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                  )}
               </div>
             </div>
             {/* Confirm Password Input */}
@@ -165,18 +172,15 @@ export default function SetPassword() {
 
           {/* Next Button */}
           <div>
-            <div className="flex justify-center bg-gray-100 text-gray-400 rounded-lg p-3">
-              <button type="submit">
-                <a
-                  href="/login"
-                  id="forgot-password"
-                  className="flex items-center gap-2"
-                >
-                  <p>Next</p>
-                  <Image src={Arrow} alt="arrow" />
-                </a>
-              </button>
-            </div>
+            <ButtonComponent
+              onClick={() => {}}
+              title="Next"
+              className=""
+              withIcon
+              icon={
+                <ArrowRightIcon className="group-hover:scale-115 group-hover:translate-x-2 transition-all  opacity-0 group-hover:opacity-100 " />
+              }
+            />
           </div>
         </form>
       </div>

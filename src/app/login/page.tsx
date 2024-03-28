@@ -2,10 +2,13 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Logo from "../../../public/IMG-20230417-WA0010 1.png";
-import Arrow from "../../../public/Arrow.png";
+import { useRouter } from "next/navigation";
 import errorIcon from "../../../public/Vector.png";
 import close from "../../../public/Close.png";
+import ButtonComponent from "@/components/shared/ButtonComponent";
+import ArrowRightIcon from "@/components/icons/ArrowRightIcon";
 export default function LoginPage() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showError, setShowError] = useState(false);
@@ -19,6 +22,7 @@ export default function LoginPage() {
       // Redirect to the next step if login is successful
       // For now, let's just log a success message
       console.log("Login successful!");
+      router.push("/dashboard");
     } else {
       // Display error message if login fails
       setShowError(true);
@@ -28,13 +32,6 @@ export default function LoginPage() {
 
   const handleCloseError = () => {
     setShowError(false);
-  };
-
-  const handleChangeEmail = (e: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
-    setEmail(e.target.value);
-    setShowError(false); // Clear error message when user starts typing in email input
   };
 
   return (
@@ -118,18 +115,15 @@ export default function LoginPage() {
 
         {/* Next Button */}
         <div>
-          <div className="flex justify-center bg-[#056839] text-white rounded-lg p-3">
-            <button type="submit">
-              <a
-                href="/dashboard"
-                id="forgot-password"
-                className="flex items-center gap-2"
-              >
-                <p>Next</p>
-                <Image src={Arrow} alt="arrow" />
-              </a>
-            </button>
-          </div>
+          <ButtonComponent
+            title="Next"
+            onClick={() => console.log("clicked")}
+            className=""
+            withIcon
+            icon={
+              <ArrowRightIcon className="group-hover:scale-115 group-hover:translate-x-2 transition-all  opacity-0 group-hover:opacity-100" />
+            }
+          />
         </div>
       </form>
     </div>
