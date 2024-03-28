@@ -5,7 +5,6 @@ import Image from "next/image";
 import Logo from "../../../public/IMG-20230417-WA0010 1.png";
 import Arrow from "../../../public/Arrow.png";
 import errorIcon from "../../../public/Vector.png";
-import { Button } from "@nextui-org/react";
 
 export default function SetPassword() {
   const [password, setPassword] = useState("");
@@ -166,11 +165,8 @@ export default function SetPassword() {
 
           {/* Next Button */}
           <div>
-            <div className="flex justify-center ">
-              <Button
-                type="submit"
-                className="bg-gray-100 text-gray-400 rounded-lg p-3 w-full"
-              >
+            <div className="flex justify-center bg-gray-100 text-gray-400 rounded-lg p-3">
+              <button type="submit">
                 <a
                   href="/login"
                   id="forgot-password"
@@ -179,7 +175,7 @@ export default function SetPassword() {
                   <p>Next</p>
                   <Image src={Arrow} alt="arrow" />
                 </a>
-              </Button>
+              </button>
             </div>
           </div>
         </form>
