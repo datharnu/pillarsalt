@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.2.10",
+    "@radix-ui/react-select": "^2.0.0",
     "@types/react-google-recaptcha": "^2.1.9",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",

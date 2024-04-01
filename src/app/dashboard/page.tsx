@@ -1,95 +1,60 @@
-"use client";
-import React, { useState } from "react";
 import Image from "next/image";
-import Logo from "../../../public/IMG-20230417-WA0010 1.png";
-import { useRouter } from "next/navigation";
-import ButtonComponent from "@/components/shared/ButtonComponent";
-import ArrowRightIcon from "@/components/icons/ArrowRightIcon";
-import BarChart from "../../../public/Bar Chart.png";
+import React from "react";
+import Navbar from "./components/Navbar";
+import Searchbar from "./components/Searchbar";
+import CardComponent from "@/components/shared/CardComponent";
+import { SelectComponent } from "./components/SelectComponent";
 
 export default function Dashboard() {
-  const router = useRouter();
-  const [email, setEmail] = useState("");
-  const [captchaToken, setCaptchaToken] = useState(""); // State to store the reCAPTCHA token
-
-  const handleSubmit = async (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    console.log(email);
-
-    // Verify the reCAPTCHA token
-    if (!captchaToken) {
-      console.error("reCAPTCHA token is required");
-      return;
-    }
-
-    // Your form submission logic here
-    // Use the captchaToken to verify the user's response with Google
-
-    // Simulated login check
-    if (email === "joshua@gmail.com") {
-      // Redirect to the next step if login is successful
-      // For now, let's just log a success message
-      console.log("Login successful!");
-      router.push("/dashboard");
-    } else {
-      // Display error message if login fails
-      console.log("Your email address is not valid. Please try again.");
-      return;
-    }
-  };
-
-  // Function to handle reCAPTCHA token expiration
-  const handleExpiredCaptcha = () => {
-    console.log("reCAPTCHA token expired");
-    setCaptchaToken("");
-  };
-
-  // Function to handle reCAPTCHA token change
-  const handleCaptchaChange = (token: React.SetStateAction<string>) => {
-    console.log("reCAPTCHA token:", token);
-    setCaptchaToken(token);
-  };
-
   return (
-    <section className="lg:flex">
-      {/* Continue Your journey  */}
-      {/* Omitted for brevity */}
+    <section className=" sm:px-3 md:px-3">
+      <div className=" py-5 lg:flex ">
+        <div className="">
+          <Navbar />
+        </div>
 
-      {/* Right side on Desktop */}
-      <div className=" flex justify-center lg:w-[56%] ">
-        <div className="mx-5  lg:my-28 md:w-[75%]   ">
-          {/* Logo */}
-          {/* Omitted for brevity */}
+        <div className="w-full">
+          <div>
+            <Searchbar />
+          </div>
+          <div className="sm:-mt-10 py-8 bg-[#FAFAFA] px-3 lg:px-20   ">
+            <div className="py-5 lg:pb-10 flex justify-between">
+              <h1 className="text-3xl font-bold">Dashboard</h1>
+              <div className="hidden lg:block">
+                <SelectComponent />
+              </div>
+            </div>
 
-          {/* Forget Password */}
-          {/* Omitted for brevity */}
+            <div className=" max-height-[120px]  flex  sm:overflow-x-auto md:overflow-x-auto gap-5 ">
+              <CardComponent
+                amount="₦12,750,000"
+                title="Current Balance"
+                percentage={15}
+                month="Last month"
+              />
 
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="my-10 text-sm">
-            {/* Email Input */}
-            {/* Omitted for brevity */}
+              <CardComponent
+                amount="23,4892"
+                title="Total Transaction"
+                percentage={5}
+                month="Last month"
+              />
 
-            {/* Google reCAPTCHA */}
-            <div
-              className="g-recaptcha"
-              data-sitekey="YOUR_SITE_KEY"
-              data-callback="handleCaptchaChange"
-              data-expired-callback="handleExpiredCaptcha"
-            ></div>
+              <CardComponent
+                amount="₦12,750,000"
+                title="Total Withdrawal"
+                percentage={15}
+                month="Last month"
+              />
 
-            {/* Next Button */}
-            <div>
-              <ButtonComponent
-                title="Next"
-                onClick={() => console.log("clicked")}
-                className=""
-                withIcon
-                icon={
-                  <ArrowRightIcon className="group-hover:scale-115 group-hover:translate-x-2 transition-all  opacity-0 group-hover:opacity-100" />
-                }
+              <CardComponent
+                amount="₦1,291"
+                title="Total Braches"
+                percentage={15}
+                month="Last month"
               />
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </section>

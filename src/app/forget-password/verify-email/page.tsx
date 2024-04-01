@@ -5,16 +5,26 @@ import Logo from "../../../../public/IMG-20230417-WA0010 1.png";
 import ButtonComponent from "@/components/shared/ButtonComponent";
 import BarChart from "../../../../public/Bar Chart.png";
 import ArrowRightIcon from "@/components/icons/ArrowRightIcon";
-import { InputOTP, InputOTPGroup } from "@/components/ui/input-otp";
+import { useRouter } from "next/navigation";
 import { InputOTPPattern } from "./components/otp";
+import { ChevronLeft } from "lucide-react";
 
 export default function VerifyEmail() {
+  const router = useRouter();
   const [verificationCode, setVerificationCode] = useState("");
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     // Add your verification logic here
     console.log("Verification code submitted:", verificationCode);
+
+    // Proceed with verification
+    router.push("/forget-password/verify-email/verified");
+  };
+
+  const handleGoBack = () => {
+    // router.push("/forget-password");
+    router.back();
   };
 
   return (
@@ -60,6 +70,9 @@ export default function VerifyEmail() {
 
           {/* Verify Email */}
           <div className="space-y-5 mb-5">
+            <div onClick={handleGoBack} className="cursor-pointer">
+              <ChevronLeft />
+            </div>
             <h1 className="text-[34px] font-semibold">Verify Email</h1>
             <p className="text-[#00000099] font-light ">
               We sent a verification code to

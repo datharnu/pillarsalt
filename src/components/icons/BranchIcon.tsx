@@ -1,0 +1,28 @@
+import React from "react";
+
+interface Props extends React.SVGProps<SVGSVGElement> {
+  width?: string;
+  height?: string;
+}
+
+export default function BranchIcon({
+  width = "20",
+  height = "20",
+  ...props
+}: Props) {
+  return (
+    <svg
+      width={width}
+      {...props}
+      height={height}
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M10 5.83333V2.5H1.66669V17.5H18.3334V5.83333H10ZM5.00002 15.8333H3.33335V14.1667H5.00002V15.8333ZM5.00002 12.5H3.33335V10.8333H5.00002V12.5ZM5.00002 9.16667H3.33335V7.5H5.00002V9.16667ZM5.00002 5.83333H3.33335V4.16667H5.00002V5.83333ZM8.33335 15.8333H6.66669V14.1667H8.33335V15.8333ZM8.33335 12.5H6.66669V10.8333H8.33335V12.5ZM8.33335 9.16667H6.66669V7.5H8.33335V9.16667ZM8.33335 5.83333H6.66669V4.16667H8.33335V5.83333ZM16.6667 15.8333H10V14.1667H11.6667V12.5H10V10.8333H11.6667V9.16667H10V7.5H16.6667V15.8333ZM15 9.16667H13.3334V10.8333H15V9.16667ZM15 12.5H13.3334V14.1667H15V12.5Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
