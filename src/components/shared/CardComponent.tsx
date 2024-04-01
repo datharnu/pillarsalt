@@ -46,19 +46,19 @@ export default function CardComponent({
     );
 
   return (
-    <div className="bg-[#FFFFFF] min-w-[260px] lg:max-w-[300px]   lg:w-full rounded-xl shadow-xl ">
+    <div className="bg-[#FFFFFF] min-w-[260px] w-full    rounded-xl shadow-[#959595] shadow ">
       <div className="py-5  space-y-2 pl-8">
         <div>
-          <h1 className="text-[#959595]">{title}</h1>
+          <h1 className="text-[#959595] sm:text-sm ">{title}</h1>
         </div>
         <div>
-          <h1 className="text-3xl">{amount}</h1>
+          <h1 className="text-3xl sm:text-2xl">{amount}</h1>
         </div>
         <div className="space-x-2">
           <span className={percentageClassName}>
             {arrowIcon} {percentage}%
           </span>
-          <span className="text-[#959595]">{month}</span>
+          <span className="text-[#959595] sm:text-sm ">{month}</span>
         </div>
       </div>
     </div>
