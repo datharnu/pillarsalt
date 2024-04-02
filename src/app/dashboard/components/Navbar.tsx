@@ -20,17 +20,22 @@ export default function Navbar() {
   return (
     <div className="">
       {/* Small screen Navbar */}
-      <div className="flex justify-between lg:hidden  ">
-        <div className="w-24 h-24 ">
-          <Image src={Logo} alt="Logo" />
-        </div>
-        <div className="">
-          <AlignJustify onClick={toggleNav} className="" />
+      <div className=" lg:hidden  ">
+        <div className="flex justify-between  wallet px-3 md:px-10 -mt-5 pt-2 ">
+          <div className="w-24 h-14 ">
+            <Image src={Logo} alt="Logo" />
+          </div>
+          <div>
+            <AlignJustify onClick={toggleNav} className="mt-3 cursor-pointer" />
+          </div>
         </div>
 
         {isNavOpen && (
           <nav className="bg-gray-100 space-y-5 h-screen w-[75%] hide absolute right-0 top-0 px-10 py-10 border">
-            <X className="absolute right-10 lg:hidden" onClick={closeNav} />
+            <X
+              className="absolute right-10 lg:hidden cursor-pointer"
+              onClick={closeNav}
+            />
             {Navlinks.map((link) => (
               <div
                 key={link.id}
@@ -47,7 +52,7 @@ export default function Navbar() {
       </div>
       {/* Large Screen Navbar */}
 
-      <div className="hidden lg:visible lg:flex justify-between w-full bg-[#FFFFFF]">
+      <div className="hidden lg:visible lg:flex justify-between w-full bg-[#FFFFFF]  ">
         <div className="space-y-10  w-[15rem]  border-r px-10">
           <div className="">
             <Image src={Logo} alt="Logo" />

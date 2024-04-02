@@ -46,8 +46,8 @@ export default function CardComponent({
     );
 
   return (
-    <div className="bg-[#FFFFFF] min-w-[260px] w-full    rounded-xl shadow-[#959595] shadow ">
-      <div className="py-5  space-y-2 pl-8">
+    <div className="bg-[#FFFFFF] min-w-[260px] w-full sm:mx-[2px] md:mx-[2px]   rounded-xl shadow-[#959595] shadow ">
+      <div className="py-5   space-y-2 pl-8">
         <div>
           <h1 className="text-[#959595] sm:text-sm ">{title}</h1>
         </div>

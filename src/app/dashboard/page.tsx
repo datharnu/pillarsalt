@@ -19,17 +19,17 @@ export default function Dashboard() {
   ];
 
   return (
-    <section className=" sm:px-3 md:px-3">
+    <section className="  ">
       <div className=" py-5 lg:flex ">
         <div className="">
           <Navbar />
         </div>
 
-        <div className="w-full">
+        <div className="w-full  ">
           <div>
             <Searchbar />
           </div>
-          <div className="sm:-mt-10 py-8 bg-[#FAFAFA] px-3 lg:px-20   ">
+          <div className="sm:mt-1 py-8 bg-[#FAFAFA] lg:px-20 px-3 md:px-10  ">
             <div className="py-5 lg:pb-10 flex justify-between">
               <h1 className="text-3xl font-bold">Dashboard</h1>
               <div className="hidden lg:block">
