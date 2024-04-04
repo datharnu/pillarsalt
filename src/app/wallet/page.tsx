@@ -7,6 +7,7 @@ import Icon from "../../../public/icon-holder.png";
 import Image from "next/image";
 import wallet from "../../../public/Brown wallet with money.png";
 import Zenith from "../../../public/1200px-Zenith_Bank_Logo 2.png";
+import TableComponent from "@/components/shared/TableComponent";
 export default function Wallet() {
   return (
     <div className=" py-5 lg:flex ">
@@ -15,7 +16,7 @@ export default function Wallet() {
       </div>
       <div className="w-full">
         <Searchbar />
-        <div className="sm:mt-1 py-8 bg-[#FAFAFA]   lg:px-20 px-3 ">
+        <div className="sm:mt-1 py-8 bg-[#FAFAFA]   lg:px-20 px-5 ">
           <div className="py-5 lg:pb-10 flex justify-between">
             <h1 className="text-3xl font-bold">Wallet Management</h1>
           </div>
@@ -69,6 +70,14 @@ export default function Wallet() {
                 </div>
               </WalletCard>
             </div>
+          </div>
+          {/* Transactio HIstory */}
+          <div>
+            <div className="flex justify-between items-center py-5 font-semibold">
+              <h1 className="text-2xl ">Transaction History</h1>
+              <p className="text-[#056839]">See all</p>
+            </div>
+            <TableComponent />
           </div>
         </div>
       </div>
