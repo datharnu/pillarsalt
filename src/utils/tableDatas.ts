@@ -105,7 +105,7 @@ export const tableDatas: tableData[] = [
     narrationLabel: "Narration",
     narration: "Credit",
     branchLabel: "Branch",
-    branch: "LMN Corporation",
+    branch: "LMN Corp.",
     branchIdLabel: "Branch ID",
     branchId: "Port Harcourt",
     actionLabel: "Action",

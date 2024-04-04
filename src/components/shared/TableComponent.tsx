@@ -6,7 +6,7 @@ const TableRow = ({ label, value }: { label: string; value: string }) => (
   <div className="space-y-2">
     <h1 className="text-xs text-[#959595]">{label}</h1>
     <p
-      className={`text-xs ${
+      className={` ${
         ["Amount", "Transaction Ref", "Depositor"].includes(label)
           ? "text-[#056839] font-bold text-[16px] "
           : ""
