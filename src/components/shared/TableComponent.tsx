@@ -5,7 +5,15 @@ import React from "react";
 const TableRow = ({ label, value }: { label: string; value: string }) => (
   <div className="space-y-2">
     <h1 className="text-xs text-[#959595]">{label}</h1>
-    <p className="text-[16px]">{value}</p>
+    <p
+      className={`text-xs ${
+        ["Amount", "Transaction Ref", "Depositor"].includes(label)
+          ? "text-[#056839] font-bold text-[16px] "
+          : ""
+      }`}
+    >
+      {value}
+    </p>
   </div>
 );
 
@@ -29,9 +37,11 @@ export default function TableComponent() {
               <h1 className="">
                 {data.statusLabel}
                 <span
-                  className={`bg-[${
-                    data.status === "Completed" ? "#00B87C" : "#F08C00"
-                  }] rounded-2xl font-bold ml-1.5 text-xs px-2 py-1 text-white`}
+                  className={` rounded-2xl font-bold ml-1.5 text-xs px-2 py-1 text-white ${
+                    data.status === "Completed"
+                      ? "bg-[#00B87C]"
+                      : "bg-[#F08C00]"
+                  }`}
                 >
                   {data.status}
                 </span>
