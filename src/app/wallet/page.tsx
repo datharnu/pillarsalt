@@ -44,9 +44,6 @@ export default function Wallet() {
                   <div className="space-y-2">
                     <h1 className="text-xl">₦12,750,000</h1>
                     <div className=" flex  gap-2 text-[10px]  ">
-                      {/* <button className="bg-[#219653] hover:bg-green-700 text-white p-1 px-2 rounded-[6px]">
-                        Fund Wallet
-                      </button> */}
                       <FundWallet />
                       <button className="border border-[#056839] text-[#219653] p-1 px-2 rounded-[6px]">
                         Withdraw
