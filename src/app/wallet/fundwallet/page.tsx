@@ -12,10 +12,10 @@ import {
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 import Image from "next/image";
-import bankIcon from "../../../public/Avatar.png";
-import wallet from "../../../public/Icon.png";
+import bankIcon from "../../../../public/Avatar.png";
+import walletIcon from "../../../../public/Icon.png";
 import ButtonComponent from "@/components/shared/ButtonComponent";
-export function FundWallet() {
+export default function FundWallet() {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
@@ -61,7 +61,7 @@ export function FundWallet() {
             <div className="mt-5">
               <div className="flex items-center border rounded-xl my-3 px-5 gap-3 py-2">
                 <div>
-                  <Image src={wallet} alt="bank-icon" width={90} />
+                  <Image src={walletIcon} alt="bank-icon" width={90} />
                 </div>
                 <div className="space-y-1">
                   <h1 className="font-bold">Card Payment</h1>

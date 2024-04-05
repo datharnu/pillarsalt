@@ -9,7 +9,7 @@ import wallet from "../../../public/Brown wallet with money.png";
 import Zenith from "../../../public/1200px-Zenith_Bank_Logo 2.png";
 import TableComponent from "@/components/shared/TableComponent";
 import LargeScreenTable from "@/components/shared/LargeScreenTable";
-import { FundWallet } from "../fundwallet/page";
+import FundWallet from "./fundwallet/page";
 
 export default function Wallet() {
   return (
