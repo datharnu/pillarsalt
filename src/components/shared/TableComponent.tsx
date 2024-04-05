@@ -19,7 +19,7 @@ const TableRow = ({ label, value }: { label: string; value: string }) => (
 
 export default function TableComponent() {
   return (
-    <div>
+    <div className="lg:hidden md:hidden">
       {tableDatas.map((data) => (
         <div
           key={data.id}

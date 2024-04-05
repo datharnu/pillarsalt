@@ -29,7 +29,7 @@ export default function Dashboard() {
           <div>
             <Searchbar />
           </div>
-          <div className="sm:mt-1 py-8 bg-[#FAFAFA] lg:px-20 px-5 md:px-10  ">
+          <div className="sm:mt-1 py-8 bg-[#FAFAFA] lg:px-20 px-5 md:px-10 h-full ">
             <div className="py-5 lg:pb-10 flex justify-between">
               <h1 className="text-3xl font-bold">Dashboard</h1>
               <div className="hidden lg:block">
